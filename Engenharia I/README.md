@@ -1,1 +1,3 @@
 É possível entender com a leitura do texto, que mesmo que muitos pensem que engenharia de software e programação sejam muito parecidas, ainda existem algumas diferenças muito discrepantes entre uma e outra. Na questão de engenharia de software além de você ter que trabalhar com prazos curtos, ainda tem de se preocupar com a necessidade posterior de fazer alterações no projeto, e além dessas preocupações ainda é necessário dar mais atenção a escala e a eficiência tanto em relação ao software quanto ao método de organização do trabalho.
+
+No texto é explicado que mesmo que pareça, na verdade engenharia de software não é somente programação, ainda existem diversos outros sistemas dentro da engenharia de software.
