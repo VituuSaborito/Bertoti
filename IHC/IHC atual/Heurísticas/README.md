@@ -17,7 +17,7 @@
 
 <details>
   <summary>4 - Consistência e Padrões</summary>
-  <img src="heurística4.png">
+  <img src="heurística4.jpg">
 </details>
 
 <details>
