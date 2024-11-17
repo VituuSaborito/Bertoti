@@ -1,0 +1,25 @@
+public class PrintQueue {
+    private static PrintQueue instance;
+
+    private PrintQueue() {
+        
+    }
+    public static PrintQueue getInstance() {
+        if (instance == null) {
+            instance = new PrintQueue();
+        }
+        return instance;
+    }
+
+    public void addJob(String job) {
+        System.out.println("Job adicionado à fila: " + job);
+    }
+}
+
+public class Printer {
+    public void print(String job) {
+        PrintQueue printQueue = PrintQueue.getInstance();
+        printQueue.addJob(job);
+        System.out.println("Impressão iniciada para o job: " + job);
+    }
+}

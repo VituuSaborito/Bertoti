@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public interface Person {
+    void addRelationship(String type, Person person);
+    void getDetails();
+}
+
+public class Individual implements Person {
+    private String name;
+    private String birthDay;
+
+    public Individual(String name, String birthDay) {
+        this.name = name;
+        this.birthDay = birthDay;
+    }
+
+    @Override
+    public void addRelationship(String type, Person person) {
+        System.out.println("Não é possível adicionar relações diretas para indivíduos.");
+    }
+
+    @Override
+    public void getDetails() {
+        System.out.println("Nome: " + name + ", Data de nascimento: " + birthDay);
+    }
+}
+
+public class Family implements Person {
+    private List<Person> members = new ArrayList<>();
+
+    @Override
+    public void addRelationship(String type, Person person) {
+        members.add(person);
+        System.out.println("Adicionado um membro à família com relação: " + type);
+    }
+
+    @Override
+    public void getDetails() {
+        System.out.println("Detalhes da Família:");
+        for (Person member : members) {
+            member.getDetails();
+        }
+    }
+}
+
+public class GenealogyTree {
+    private List<Family> families = new ArrayList<>();
+
+    public void addRelationship(Family family) {
+        families.add(family);
+        System.out.println("Família adicionada à árvore genealógica.");
+    }
+
+    public void getTreeDetails() {
+        System.out.println("Detalhes da Árvore Genealógica:");
+        for (Family family : families) {
+            family.getDetails();
+        }
+    }
+}
+

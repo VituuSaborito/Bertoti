@@ -1,0 +1,79 @@
+public class Filme {
+    private String nome;
+    private String genero;
+    private int classificacaoEtaria;
+
+    public Filme(String nome, String genero, int classificacaoEtaria) {
+        this.nome = nome;
+        this.genero = genero;
+        this.classificacaoEtaria = classificacaoEtaria;
+    }
+
+    public void play() {
+        System.out.println("Reproduzindo filme: " + nome);
+    }
+
+    public void pause() {
+        System.out.println("Filme pausado: " + nome);
+    }
+}
+
+public class Serie {
+    private String nome;
+    private int temporada;
+    private int episodio;
+
+    public Serie(String nome, int temporada, int episodio) {
+        this.nome = nome;
+        this.temporada = temporada;
+        this.episodio = episodio;
+    }
+
+    public void play() {
+        System.out.println("Reproduzindo série: " + nome + ", Temporada: " + temporada + ", Episódio: " + episodio);
+    }
+
+    public void pause() {
+        System.out.println("Série pausada: " + nome);
+    }
+}
+
+public class Documentario {
+    private String nome;
+    private double duracao;
+    private String narrador;
+
+    public Documentario(String nome, double duracao, String narrador) {
+        this.nome = nome;
+        this.duracao = duracao;
+        this.narrador = narrador;
+    }
+
+    public void play() {
+        System.out.println("Reproduzindo documentário: " + nome + ", Narrador: " + narrador);
+    }
+
+    public void pause() {
+        System.out.println("Documentário pausado: " + nome);
+    }
+}
+
+public class StreamingFacade {
+    private Filme filme;
+    private Serie serie;
+    private Documentario documentario;
+
+    public StreamingFacade(Filme filme, Serie serie, Documentario documentario) {
+        this.filme = filme;
+        this.serie = serie;
+        this.documentario = documentario;
+    }
+
+    public void avaliar(String tipo, String nome, int estrelas) {
+        System.out.println("Avaliação para " + tipo + " (" + nome + "): " + estrelas + " estrelas");
+    }
+
+    public void colocarNaLista(String tipo, String nome) {
+        System.out.println(tipo + " (" + nome + ") adicionado à lista.");
+    }
+}

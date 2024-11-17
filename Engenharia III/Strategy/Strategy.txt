@@ -1,0 +1,40 @@
+public interface MetodoCalculo {
+    void calculo(double peso, double distancia);
+}
+
+public class MetodoMercadoLivre implements MetodoCalculo {
+    @Override
+    public void calculo(double peso, double distancia) {
+        System.out.println("Cálculo de frete para Mercado Livre: Peso = " + peso + ", Distância = " + distancia);
+    }
+}
+
+public class MetodoAmazon implements MetodoCalculo {
+    @Override
+    public void calculo(double peso, double distancia) {
+        System.out.println("Cálculo de frete para Amazon: Peso = " + peso + ", Distância = " + distancia);
+    }
+}
+
+public class MetodoAliexpress implements MetodoCalculo {
+    @Override
+    public void calculo(double peso, double distancia) {
+        System.out.println("Cálculo de frete para Aliexpress: Peso = " + peso + ", Distância = " + distancia);
+    }
+}
+
+public class Frete {
+    private MetodoCalculo metodoCalculo;
+
+    public void setMetodoCalculo(MetodoCalculo metodoCalculo) {
+        this.metodoCalculo = metodoCalculo;
+    }
+
+    public void calcularFrete(double peso, double distancia) {
+        if (metodoCalculo != null) {
+            metodoCalculo.calculo(peso, distancia);
+        } else {
+            System.out.println("Nenhum método de cálculo definido.");
+        }
+    }
+}

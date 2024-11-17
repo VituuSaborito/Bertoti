@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public interface EventListener {
+    void update();
+}
+
+public class NotificationDesktop implements EventListener {
+    @Override
+    public void update() {
+        System.out.println("Notificação no Desktop recebida.");
+    }
+}
+
+public class NotificationMobile implements EventListener {
+    @Override
+    public void update() {
+        System.out.println("Notificação no Mobile recebida.");
+    }
+}
+
+public class EventManager {
+    private Map<String, List<EventListener>> subscribers = new HashMap<>();
+
+    public void subscribe(String eventType, EventListener listener) {
+        subscribers.computeIfAbsent(eventType, k -> new ArrayList<>()).add(listener);
+    }
+
+    public void unsubscribe(String eventType, EventListener listener) {
+        List<EventListener> listeners = subscribers.get(eventType);
+        if (listeners != null) {
+            listeners.remove(listener);
+        }
+    }
+
+    public void notify(String eventType) {
+        List<EventListener> listeners = subscribers.get(eventType);
+        if (listeners != null) {
+            for (EventListener listener : listeners) {
+                listener.update();
+            }
+        }
+    }
+}
+
+public class Youtube {
+    private EventManager events = new EventManager();
+
+    public void subscribe(String eventType, EventListener listener) {
+        events.subscribe(eventType, listener);
+    }
+
+    public void unsubscribe(String eventType, EventListener listener) {
+        events.unsubscribe(eventType, listener);
+    }
+
+    public void uploadVideo(String videoTitle) {
+        System.out.println("Vídeo " + videoTitle + " foi carregado.");
+        events.notify("upload");
+    }
+}
